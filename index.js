@@ -7,7 +7,7 @@ const passport = require("passport");
 connectDB();
 require("./models/User.js");
 require("./services/passport");
-
+require("./models/Survey.js");
 const app = express();
 app.use(bodyParser.json());
 app.use(
@@ -21,6 +21,7 @@ app.use(passport.session());
 //auth Routes
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV === "production") {
   //express will serve up production assets
